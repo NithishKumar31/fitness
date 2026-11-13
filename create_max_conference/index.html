@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CREATE MAX — Creative Technology Conference | Miami Beach, FL</title>
+  <meta name="description" content="Dream big. Create bigger. Join thousands of creative leaders, technologists, and designers in Miami Beach and online for three days of visionary keynotes and workshops.">
+  
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       Header & Navigation
+       ========================================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <!-- Left: Logo -->
+      <a href="#hero" class="logo" aria-label="CREATE MAX Home">
+        <div class="logo-symbol">M</div>
+        <div class="logo-text">CREATE <span>MAX</span></div>
+      </a>
+
+      <!-- Center: Navigation Items -->
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#whats-coming" class="nav-link">In Person</a></li>
+          <li><a href="#whats-coming" class="nav-link">Online</a></li>
+          <li><a href="#speakers" class="nav-link">Speakers</a></li>
+          <li><a href="#sessions" class="nav-link">Sessions</a></li>
+          <li><a href="#experience" class="nav-link">Sponsors</a></li>
+          <li><a href="#community" class="nav-link">More MAX</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Event Meta & CTAs -->
+      <div class="nav-actions">
+        <div class="event-meta">
+          <span class="event-location">Miami Beach, FL</span>
+          <span class="event-date">Nov 10–12</span>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-outline" id="sign-in-btn">Sign In</button>
+          <button class="btn btn-primary open-reg-modal" id="header-register-btn">Register</button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         Hero Section
+         ========================================================================= -->
+    <section class="hero-section" id="hero">
+      <!-- Background Image Container -->
+      <div class="hero-bg-container">
+        <img src="assets/images/hero-stage.jpg" alt="CREATE MAX Conference stage with massive LED screens and vibrant red lighting" class="hero-bg-img">
+        <div class="hero-overlay-dark"></div>
+        <div class="hero-overlay-bottom"></div>
+        <div class="hero-overlay-glow"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <!-- Small Heading Badge -->
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span class="badge-text">Creative Technology Conference</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="hero-headline">
+            Dream big.<br>
+            <span class="text-gradient">Create bigger.</span>
+          </h1>
+
+          <!-- Description -->
+          <p class="hero-description">
+            Get ready for what's next — with three days of creative skill-building, visionary keynotes, and valuable connections.
+          </p>
+
+          <!-- Two-Column Event Information Block -->
+          <div class="hero-event-grid">
+            <div class="event-col">
+              <span class="event-col-date">November 8–9</span>
+              <span class="event-col-info">Preconference in Miami Beach</span>
+            </div>
+            <div class="event-col">
+              <span class="event-col-date">November 10–12</span>
+              <span class="event-col-info">Miami Beach and online</span>
+            </div>
+          </div>
+
+          <!-- CTA Row -->
+          <div class="hero-cta-row">
+            <button class="btn btn-primary btn-lg hero-cta-btn open-reg-modal" id="hero-register-btn">
+              Register →
+            </button>
+            <a href="#speakers" class="hero-secondary-link">
+              Explore Lineup <span>↓</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Section 1: What's Coming
+         ========================================================================= -->
+    <section class="section-padding" id="whats-coming">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Program Highlights</span>
+          <h2 class="section-title">What's Coming to CREATE MAX 2026</h2>
+          <p class="section-desc">
+            Immerse yourself in state-of-the-art creative technologies, real-time collaboration, and next-generation design workflows.
+          </p>
+        </div>
+
+        <div class="whats-coming-grid">
+          <!-- Card 1: Keynotes -->
+          <div class="highlight-card">
+            <div class="card-icon-wrap">⚡</div>
+            <h3 class="card-title">Visionary Keynotes</h3>
+            <p class="card-desc">
+              Global pioneers unveil breakthroughs in generative creative AI, immersive media, spatial design, and brand transformation.
+            </p>
+            <div class="card-stat">
+              <span>★ 6 Master Keynotes</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Creative Workshops -->
+          <div class="highlight-card">
+            <div class="card-icon-wrap">🛠️</div>
+            <h3 class="card-title">Creative Workshops</h3>
+            <p class="card-desc">
+              Hands-on deep dives led by senior industry craftspeople. Master cutting-edge creative tools, 3D pipelines, and design systems.
+            </p>
+            <div class="card-stat">
+              <span>★ 80+ Hands-on Labs</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Sessions -->
+          <div class="highlight-card">
+            <div class="card-icon-wrap">💡</div>
+            <h3 class="card-title">Curated Sessions</h3>
+            <p class="card-desc">
+              Over 150 focused talks spanning typography, product design, creative direction, motion graphics, and interactive code.
+            </p>
+            <div class="card-stat">
+              <span>★ 150+ Breakout Tracks</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Networking -->
+          <div class="highlight-card">
+            <div class="card-icon-wrap">🤝</div>
+            <h3 class="card-title">High-Energy Networking</h3>
+            <p class="card-desc">
+              Evening rooftop mixers in South Beach, 1-on-1 portfolio reviews, and exclusive creator lounges with leading global studios.
+            </p>
+            <div class="card-stat">
+              <span>★ 12,000+ Creators</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Section 2: Featured Speakers
+         ========================================================================= -->
+    <section class="section-padding speakers-section" id="speakers">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">World-Class Lineup</span>
+          <h2 class="section-title">Featured Speakers Shaping the Future</h2>
+          <p class="section-desc">
+            Learn from the minds behind today's most influential creative work, cutting-edge products, and cultural phenomena.
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="speakers-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Speakers</button>
+          <button class="filter-btn" data-filter="ai">AI & Emerging Tech</button>
+          <button class="filter-btn" data-filter="design">Design Systems</button>
+          <button class="filter-btn" data-filter="immersive">Immersive Media & 3D</button>
+        </div>
+
+        <div class="speakers-grid">
+          <!-- Speaker 1 -->
+          <div class="speaker-card" data-category="design">
+            <div class="speaker-img-wrap">
+              <img src="assets/images/speaker-1.jpg" alt="Elena Rostova" class="speaker-img">
+              <span class="speaker-tag">Opening Keynote</span>
+            </div>
+            <div class="speaker-info">
+              <h3 class="speaker-name">Elena Rostova</h3>
+              <p class="speaker-role">Chief Design Officer</p>
+              <p class="speaker-company">Voxel Dynamics</p>
+              <div class="speaker-topic">
+                <strong>Keynote Session</strong>
+                The Post-Screen Era: Architecting Sensory Design for Ambient Computing
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 2 -->
+          <div class="speaker-card" data-category="ai">
+            <div class="speaker-img-wrap">
+              <img src="assets/images/speaker-2.jpg" alt="Marcus Chen" class="speaker-img">
+              <span class="speaker-tag">AI Pioneer</span>
+            </div>
+            <div class="speaker-info">
+              <h3 class="speaker-name">Marcus Chen</h3>
+              <p class="speaker-role">Head of Generative Intelligence</p>
+              <p class="speaker-company">SynthLab Creative</p>
+              <div class="speaker-topic">
+                <strong>AI & Technology</strong>
+                Amplified Intuition: Merging Human Craft with Neural Generation Models
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 3 -->
+          <div class="speaker-card" data-category="immersive">
+            <div class="speaker-img-wrap">
+              <img src="assets/images/speaker-3.jpg" alt="Aria Thorne" class="speaker-img">
+              <span class="speaker-tag">Spatial Pioneer</span>
+            </div>
+            <div class="speaker-info">
+              <h3 class="speaker-name">Aria Thorne</h3>
+              <p class="speaker-role">Director of Experiential Media</p>
+              <p class="speaker-company">Prism Interactive</p>
+              <div class="speaker-topic">
+                <strong>Immersive 3D</strong>
+                Sculpting Light & Space: Real-Time Interactive Installations at Scale
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Section 3: Explore Sessions
+         ========================================================================= -->
+    <section class="section-padding" id="sessions">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Agenda & Curriculum</span>
+          <h2 class="section-title">Explore Sessions & Deep-Dive Tracks</h2>
+          <p class="section-desc">
+            Customize your three-day journey across keynotes, hands-on production labs, and visionary panel debates.
+          </p>
+        </div>
+
+        <div class="sessions-grid">
+          <!-- Session 1 -->
+          <div class="session-card">
+            <div>
+              <div class="session-header-row">
+                <span class="session-badge">Keynote</span>
+                <span class="session-time">Nov 10 • 09:30 AM – 11:00 AM EST</span>
+              </div>
+              <h3 class="session-title">The State of the Creative Union: Where Imagination Meets Machine</h3>
+              <p class="session-desc">
+                An electrifying opening address showcasing revolutionary leaps in creative toolchains, real-time spatial computing, and ethics in AI-assisted art.
+              </p>
+            </div>
+            <div class="session-footer">
+              <div class="session-speaker-mini">
+                <img src="assets/images/speaker-1.jpg" alt="Elena Rostova" class="session-avatar">
+                <div>
+                  <div class="session-speaker-name">Elena Rostova</div>
+                  <div class="session-speaker-role">Voxel Dynamics • Main Stage</div>
+                </div>
+              </div>
+              <button class="btn btn-outline session-action-btn">Reserve Seat</button>
+            </div>
+          </div>
+
+          <!-- Session 2 -->
+          <div class="session-card">
+            <div>
+              <div class="session-header-row">
+                <span class="session-badge ai">AI Track</span>
+                <span class="session-time">Nov 10 • 01:30 PM – 03:00 PM EST</span>
+              </div>
+              <h3 class="session-title">Building Multi-Modal Creative Agents: From Prompt to Full Campaign</h3>
+              <p class="session-desc">
+                Learn how leading agency teams use specialized autonomous agents to generate brand assets, motion design, and responsive design systems.
+              </p>
+            </div>
+            <div class="session-footer">
+              <div class="session-speaker-mini">
+                <img src="assets/images/speaker-2.jpg" alt="Marcus Chen" class="session-avatar">
+                <div>
+                  <div class="session-speaker-name">Marcus Chen</div>
+                  <div class="session-speaker-role">SynthLab • Stage B</div>
+                </div>
+              </div>
+              <button class="btn btn-outline session-action-btn">Reserve Seat</button>
+            </div>
+          </div>
+
+          <!-- Session 3 -->
+          <div class="session-card">
+            <div>
+              <div class="session-header-row">
+                <span class="session-badge lab">Hands-On Lab</span>
+                <span class="session-time">Nov 11 • 10:00 AM – 12:30 PM EST</span>
+              </div>
+              <h3 class="session-title">Spatial Prototyping: Crafting Volumetric Experiences with WebGPU</h3>
+              <p class="session-desc">
+                Bring your laptop. Build responsive 3D environments, particle simulations, and tactile spatial user interfaces in real time.
+              </p>
+            </div>
+            <div class="session-footer">
+              <div class="session-speaker-mini">
+                <img src="assets/images/speaker-3.jpg" alt="Aria Thorne" class="session-avatar">
+                <div>
+                  <div class="session-speaker-name">Aria Thorne</div>
+                  <div class="session-speaker-role">Prism Interactive • Studio 4</div>
+                </div>
+              </div>
+              <button class="btn btn-outline session-action-btn">Reserve Seat</button>
+            </div>
+          </div>
+
+          <!-- Session 4 -->
+          <div class="session-card">
+            <div>
+              <div class="session-header-row">
+                <span class="session-badge">Panel Discussion</span>
+                <span class="session-time">Nov 12 • 02:00 PM – 03:30 PM EST</span>
+              </div>
+              <h3 class="session-title">The Next Decade of Design Systems: Adaptive, Fluid, and Generative</h3>
+              <p class="session-desc">
+                Leaders from Apple, Figma, and Pentagram debate how design tokens, layout intelligence, and micro-interactions will evolve.
+              </p>
+            </div>
+            <div class="session-footer">
+              <div class="session-speaker-mini">
+                <img src="assets/images/speaker-1.jpg" alt="Panel Lead" class="session-avatar">
+                <div>
+                  <div class="session-speaker-name">Industry Collective</div>
+                  <div class="session-speaker-role">Grand Ballroom</div>
+                </div>
+              </div>
+              <button class="btn btn-outline session-action-btn">Reserve Seat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Section 4: Three Days. Endless Ideas.
+         ========================================================================= -->
+    <section class="section-padding endless-ideas-section" id="experience">
+      <div class="container">
+        <div class="endless-banner-container">
+          <img src="assets/images/conference-experience.jpg" alt="Immersive creative light tunnel at CREATE MAX" class="endless-img">
+          <div class="endless-overlay">
+            <span class="endless-tag">The In-Person Experience</span>
+            <h2 class="endless-headline">Three Days.<br>Endless Ideas.</h2>
+            <p class="endless-desc">
+              Experience the convergence of technology, human expression, and community in the vibrant heart of Miami Beach. Step inside interactive architectural installations and make friendships that define your career.
+            </p>
+
+            <div class="endless-metrics">
+              <div class="metric-item">
+                <span class="metric-number">3</span>
+                <span class="metric-label">Unforgettable Days</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-number">200+</span>
+                <span class="metric-label">Hours of Content</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-number">40+</span>
+                <span class="metric-label">Interactive Installations</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-number">100%</span>
+                <span class="metric-label">Creative Energy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Section 5: Join the Creative Community (CTA)
+         ========================================================================= -->
+    <section class="section-padding cta-section" id="community">
+      <div class="container">
+        <div class="cta-box">
+          <span class="section-tag">Secure Your Seat</span>
+          <h2 class="cta-title">Join the Creative Community</h2>
+          <p class="cta-subtitle">
+            Whether you join us on the sun-drenched shores of Miami Beach or stream live anywhere in the world, CREATE MAX 2026 will transform how you build and imagine.
+          </p>
+
+          <!-- Live Countdown Timer -->
+          <div class="countdown-grid">
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-days">09</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-hours">14</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-mins">32</div>
+              <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-card">
+              <div class="countdown-num" id="cd-secs">50</div>
+              <div class="countdown-label">Seconds</div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div>
+            <button class="btn btn-primary btn-lg open-reg-modal" id="cta-register-btn">
+              Register Now →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       Section 6: Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="#hero" class="logo">
+            <div class="logo-symbol">M</div>
+            <div class="logo-text">CREATE <span>MAX</span></div>
+          </a>
+          <p class="footer-desc">
+            The premier global creative technology and design conference. Bringing together visionary designers, developers, and leaders to shape the future of digital expression.
+          </p>
+          <div class="footer-socials">
+            <a href="#hero" class="social-icon" aria-label="X (Twitter)">𝕏</a>
+            <a href="#hero" class="social-icon" aria-label="Instagram">📸</a>
+            <a href="#hero" class="social-icon" aria-label="LinkedIn">in</a>
+            <a href="#hero" class="social-icon" aria-label="YouTube">▶</a>
+            <a href="#hero" class="social-icon" aria-label="Discord">👾</a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 class="footer-heading">Conference</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Overview</a></li>
+            <li><a href="#whats-coming">In Person Pass</a></li>
+            <li><a href="#whats-coming">Online Broadcast</a></li>
+            <li><a href="#speakers">Speakers Roster</a></li>
+            <li><a href="#sessions">Sessions & Labs</a></li>
+            <li><a href="#experience">Venue & Travel</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Community & Support -->
+        <div>
+          <h4 class="footer-heading">Community</h4>
+          <ul class="footer-links">
+            <li><a href="#experience">Sponsors & Partners</a></li>
+            <li><a href="#community">Scholarships</a></li>
+            <li><a href="#community">Student Passes</a></li>
+            <li><a href="#community">Convince Your Boss</a></li>
+            <li><a href="#community">Code of Conduct</a></li>
+            <li><a href="#community">FAQ & Help</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div>
+          <h4 class="footer-heading">Stay Connected</h4>
+          <p class="footer-desc" style="margin: 0 0 14px;">
+            Get schedule announcements, speaker drops, and early-bird ticket perks directly to your inbox.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your work email" required aria-label="Work Email Address">
+            <button type="submit" class="btn btn-fire newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 CREATE MAX Inc. All rights reserved. Miami Beach, FL.
+        </div>
+        <div class="footer-legal-links">
+          <a href="#hero">Privacy Policy</a>
+          <a href="#hero">Terms of Service</a>
+          <a href="#hero">Cookie Preferences</a>
+          <a href="#hero">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Registration Modal
+       ========================================================================= -->
+  <div class="modal-overlay" id="reg-modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+      <button class="modal-close" aria-label="Close Registration Dialog">✕</button>
+      <h3 class="modal-title" id="modal-heading">Select Your CREATE MAX Pass</h3>
+      <p class="modal-desc">
+        Experience Miami Beach in person or join the global livestream. Early-bird tier closes in 9 days.
+      </p>
+
+      <div class="ticket-tiers">
+        <!-- Tier 1: In-Person Full Pass -->
+        <div class="ticket-tier selected">
+          <div>
+            <div class="ticket-name">Full Conference Pass (In Person)</div>
+            <div class="ticket-sub">All keynotes, 80+ labs, rooftop mixers, expo hall & recordings</div>
+          </div>
+          <div class="ticket-price">$1,495</div>
+        </div>
+
+        <!-- Tier 2: Online All-Access -->
+        <div class="ticket-tier">
+          <div>
+            <div class="ticket-name">Online Broadcast Pass (Virtual)</div>
+            <div class="ticket-sub">Live 4K stream of all main stages, interactive chat & on-demand replays</div>
+          </div>
+          <div class="ticket-price">Free</div>
+        </div>
+
+        <!-- Tier 3: Preconference Masterclass Add-on -->
+        <div class="ticket-tier">
+          <div>
+            <div class="ticket-name">Preconference Masterclass Add-On</div>
+            <div class="ticket-sub">Nov 8–9 intensive full-day masterclasses with lead instructors</div>
+          </div>
+          <div class="ticket-price">+$495</div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 14px; justify-content: flex-end; align-items: center;">
+        <button class="btn btn-outline modal-close">Cancel</button>
+        <button class="btn btn-primary" onclick="alert('Registration flow confirmed! Welcome to CREATE MAX 2026.'); document.getElementById('reg-modal').classList.remove('active');">
+          Complete Registration →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Rejuvenate — Daily Fitness, Real-Time Walking, Meditation & Vitality Companion.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Rejuvenate">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Rejuvenate — Fitness & Mindfulness</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    (function() {
+      let audioCtx = null;
+      let activeAmbientNodes = [];
+
+      function getAudioContext() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) {
+            audioCtx = new AudioContextClass();
+          }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        return audioCtx;
+      }
+
+      function stopAmbient() {
+        if (activeAmbientNodes.length > 0) {
+          activeAmbientNodes.forEach(node => {
+            try {
+              if (node.stop) node.stop();
+              if (node.disconnect) node.disconnect();
+            } catch (e) {}
+          });
+          activeAmbientNodes = [];
+        }
+      }
+
+      window.stopRejuvenateAmbient = stopAmbient;
+
+      window.startRejuvenateAmbient = function(soundType) {
+        stopAmbient();
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        try {
+          if (soundType === 'drone') {
+            // Warm Tibetan singing bowl ambient drone (432Hz + 528Hz + octave)
+            const freqs = [216, 432, 528];
+            freqs.forEach((f, idx) => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(f, ctx.currentTime);
+              
+              // Gentle volume
+              const targetGain = 0.04 / (idx + 1);
+              gain.gain.setValueAtTime(0.001, ctx.currentTime);
+              gain.gain.linearRampToValueAtTime(targetGain, ctx.currentTime + 1.5);
+
+              // LFO for organic breathing pulsation
+              const lfo = ctx.createOscillator();
+              const lfoGain = ctx.createGain();
+              lfo.frequency.setValueAtTime(0.15 + (idx * 0.05), ctx.currentTime);
+              lfoGain.gain.setValueAtTime(targetGain * 0.35, ctx.currentTime);
+              lfo.connect(lfoGain.gain);
+
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start();
+              activeAmbientNodes.push(osc, gain);
+            });
+          } else if (soundType === 'ocean' || soundType === 'rain') {
+            // Noise generator with procedural modulation
+            const bufferSize = ctx.sampleRate * 2;
+            const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const output = noiseBuffer.getChannelData(0);
+            let lastOut = 0.0;
+            for (let i = 0; i < bufferSize; i++) {
+              const white = Math.random() * 2 - 1;
+              output[i] = (lastOut + (0.02 * white)) / 1.02; // Pink-ish noise
+              lastOut = output[i];
+            }
+
+            const whiteNoise = ctx.createBufferSource();
+            whiteNoise.buffer = noiseBuffer;
+            whiteNoise.loop = true;
+
+            const filter = ctx.createBiquadFilter();
+            if (soundType === 'ocean') {
+              filter.type = 'lowpass';
+              filter.frequency.setValueAtTime(450, ctx.currentTime);
+              // Modulate filter for wave swoosh
+              const lfo = ctx.createOscillator();
+              const lfoGain = ctx.createGain();
+              lfo.frequency.setValueAtTime(0.12, ctx.currentTime); // 8 second wave cycle
+              lfoGain.gain.setValueAtTime(320, ctx.currentTime);
+              lfo.connect(filter.frequency);
+              lfo.start();
+              activeAmbientNodes.push(lfo, lfoGain);
+            } else {
+              // Gentle Rain
+              filter.type = 'bandpass';
+              filter.frequency.setValueAtTime(1100, ctx.currentTime);
+              filter.Q.setValueAtTime(0.7, ctx.currentTime);
+            }
+
+            const gain = ctx.createGain();
+            const vol = soundType === 'ocean' ? 0.07 : 0.045;
+            gain.gain.setValueAtTime(0.001, ctx.currentTime);
+            gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + 1.2);
+
+            whiteNoise.connect(filter);
+            filter.connect(gain);
+            gain.connect(ctx.destination);
+            whiteNoise.start();
+            activeAmbientNodes.push(whiteNoise, filter, gain);
+          }
+        } catch (e) {
+          console.warn('Ambient sound failed:', e);
+        }
+      };
+
+      window.playRejuvenateSound = function(type) {
+        try {
+          const ctx = getAudioContext();
+          if (!ctx) return;
+
+          if (type === 'meditation_bell') {
+            const now = ctx.currentTime;
+            const freqs = [528, 792, 1056, 1584];
+            freqs.forEach((freq, idx) => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(freq, now);
+              const initialGain = 0.35 / (idx + 1);
+              gain.gain.setValueAtTime(initialGain, now);
+              gain.gain.exponentialRampToValueAtTime(0.0001, now + 5.5);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(now);
+              osc.stop(now + 5.5);
+            });
+          } else if (type === 'countdown_beep') {
+            const now = ctx.currentTime;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(660, now);
+            gain.gain.setValueAtTime(0.18, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.18);
+          } else {
+            // Upbeat Victory Fanfare Alarm
+            const now = ctx.currentTime;
+            const notes = [523.25, 659.25, 783.99, 1046.50, 1046.50]; // C5, E5, G5, C6, C6
+            notes.forEach((freq, i) => {
+              const noteTime = now + (i * 0.16);
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'triangle';
+              osc.frequency.setValueAtTime(freq, noteTime);
+              gain.gain.setValueAtTime(0.28, noteTime);
+              const duration = (i === 4) ? 1.1 : 0.28;
+              gain.gain.exponentialRampToValueAtTime(0.001, noteTime + duration);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(noteTime);
+              osc.stop(noteTime + duration);
+            });
+          }
+        } catch (e) {
+          console.warn('Audio play failed:', e);
+        }
+      };
+    })();
+  </script>
+</body>
+</html>
